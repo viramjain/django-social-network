@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>
+    home
+</h1>
+<h1>{{name}}</h1>
+<div class="row p-5 text-justify">
+<div class="col-mid-12">
+<form class="form-inline">
+    <input class="form-control mr-3" placeholder="Search" value="{{request.GET.si}}" type="">
+    <input class="btn btn-dark mr-3" type="submit" value="Search">
+    <a class="btn btn-dark" href="/social/mypost/create"><span class="fa fa-plus">
+
+    </span>
+
+    </a>
+
+</form>
+    <table class="table my-3">
+<thead class="thead-dark">
+<tr>
+    <th>Subject</th>
+    <th>Date</th>
+    <th>
+        Action
+    </th>
+</tr>
+</thead>
+{% for n1 in mypost_list %}
+        <tr>
+            <td>
+                {{n1.subject}}
+
+            </td>
+            <td>
+                {{n1.cr_date | date:"d/m/y" }}-{{n1.uploaded_by}}
+            </td>
+            <td>
+                <td>
+            {% if n1.liked %}
+            <a href="/social/mypost/unlike/{{n1.id}}">UnLike</a>
+            {% else %}
+            <a href="/social/mypost/like/{{n1.id}}">Like</a>
+            {% endif %}
+
+        </td>
+            <td>{{n1.likecount}}</td>
+<a class="btn btn-dark btn-sm" href="/social/mypost/{{n1.id}}">Read More
+{% if user.is_superuser %}
+</a><a class="btn btn-danger btn-sm" href="/social/mypost/delete/{{n1.id}}">Delete
+{% endif %}
+            </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</div>
+
+{% endblock %}

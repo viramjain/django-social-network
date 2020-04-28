@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="p-5">
+<h1 class="myhead2">
+Profiles<a class="btn btn-dark" href="/social/mypost/create"><span class="fa fa-plus"></span>
+
+</a>
+</h1>
+    <hr>
+    <form class="form-inline">
+    <input  class="form-control mr-3" placeholder="search" value="{{ request.GET.si}}" type="text" name="si">
+    <input class="btn btn-dark" type="submit" value="Search">
+
+</form>
+    <table class="table my-3">
+<thead class="thead-dark">
+<tr>
+    <th>
+       Name
+    </th>
+    <th>
+Age
+    </th>
+    <th>
+Gender
+    </th>
+     <th>
+Read More
+    </th>
+</tr>
+</thead>
+        {% for n1 in myprofile_list %}
+        <tr>
+            <td>
+{{n1.name}}
+            </td>
+             <td>
+{{n1.age}}
+            </td>
+                  <td>
+{{n1.gender}}
+            </td>
+            <td ><a class="btn btn-dark btn-sm" href="/social/myprofile/{{n1.id}}">Read More</a>
+
+            </td>
+            {% if n1.followed %}
+            <td ><a class="btn btn-dark btn-sm" href="/social/myprofile/unfollow/{{n1.id}}">UnFollow</a></td>
+            {% else %}
+             <td ><a class="btn btn-dark btn-sm" href="/social/myprofile/follow/{{n1.id}}">Follow</a>
+
+            </td>
+            {% endif %}
+
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="p-5">
+<h1 class="myhead2">{{myprofile.name}}</h1>
+    <p><strong>
+        Age ::
+    </strong>{{myprofile.age}}</p>
+    <p>
+        <strong>
+            Gender::
+        </strong>{{myprofile.gender}}
+    </p>
+    <p>
+        <strong>
+            Address ::
+        </strong>{{myprofile.address}}
+    </p>
+    <p>
+        <strong>
+            Status ::
+        </strong>{{myprofile.status}}
+    </p>
+    <p>
+        <strong>
+            Phone_no ::
+        </strong>{{myprofile.phone_no}}
+    </p><p>
+        <strong>
+            Description ::
+        </strong>{{myprofile.description}}
+</p>
+
+    <img src="/media/{{myprofile.pic}}">
+    <a href="/social/myprofile" >Back
+
+    </a>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+
+body{
+background-color:#fcfbd1;
+}
+h1{
+font-size:70px;
+color:#620000;
+text-align:center;
+text-shadow:3px 3px 3px black;
+font-family:cursive;
+background-color:#fde3bd;
+border:2px solid #620000;
+border-radius:20px;
+}
+#header1{
+height: 240px;
+}

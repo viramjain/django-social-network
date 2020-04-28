@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="p-5">
+<h1 class="myhead2">{{mypost.subject}}</h1>
+    <p><strong>
+        Date ::
+    </strong>{{mypost.cr_date | date:"d/m/y"}}</p>
+    <p>
+        <strong>
+            MSG ::
+        </strong>{{mypost.msg}}
+    </p>
+    <img src="/media/{{mypost.pic}}">
+    <a href="/social/mypost" >Back
+
+    </a>
+
+</div>
+
+{% endblock %}
